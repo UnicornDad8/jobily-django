@@ -1,6 +1,17 @@
-{% extends 'main.html' %} {% block content %}
-<h2>Projects template</h2>
+{% extends 'main.html' %} {% block content %} {% if number >= 10%}
 <p>
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Number is greater or equal to 10</span>
 </p>
-{% endblock %}
+{% else %}
+<p>Number is less than 10</p>
+{% endif %}
+<hr />
+<h2>Projects</h2>
+<ul>
+  {% for project in projects %}
+    <li><a href="{% url 'project' project.id %}">{{project.title}}</a> 
+    <p>{{project.description}}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
