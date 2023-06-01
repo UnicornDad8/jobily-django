@@ -1,17 +1,24 @@
-{% extends 'main.html' %} {% block content %} {% if number >= 10%}
-<p>
-  Number is greater or equal to 10</span>
-</p>
-{% else %}
-<p>Number is less than 10</p>
-{% endif %}
-<hr />
+{% extends 'main.html' %} {% block content %}
 <h2>Projects</h2>
-<ul>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Project</th>
+    <th>Positive Votes</th>
+    <th>Votes</th>
+    <th>Date</th>
+    <th></th>
+  </tr>
   {% for project in projects %}
-    <li><a href="{% url 'project' project.id %}">{{project.title}}</a> 
-    <p>{{project.description}}</p>
-    </li>
+  <tr>
+    <td>{{project.id}}</td>
+    <td>{{project.title}}</td>
+    <td>{{project.vote_ratio}}%</td>
+    <td>{{project.vote_total}}</td>
+    <td>{{project.created}}</td>
+    <td><a href="{% url 'project' project.id %}">Details Page</a></td>
+  </tr>
   {% endfor %}
-</ul>
+</table>
 {% endblock content %}
