@@ -1,4 +1,7 @@
 {% extends 'main.html' %} {% block content %}
+<div>
+  <img src="{{project.featured_image.url}}" />
+</div>
 <h2>{{project.title}}</h2>
 <hr />
 {% for tag in project.tags.all %}
