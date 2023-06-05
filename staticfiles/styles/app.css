@@ -10,11 +10,6 @@
   border: 2px solid var(--color-light);
 }
 
-.card__body {
-  height: 500px;
-  background: blue;
-}
-
 img {
   width: 100%;
 }

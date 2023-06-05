@@ -1,1 +1,12 @@
+.backButton i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-left: -2px;
+  font-size: 22px;
+}
 
+.card {
+  height: 800px !important;
+}
