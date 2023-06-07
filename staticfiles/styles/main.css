@@ -7,6 +7,10 @@
   font-size: 22px;
 }
 
-.card {
-  height: 800px !important;
+.dev__social i {
+  font-size: 28px;
+}
+
+.project .card__body {
+  height: 250px;
 }

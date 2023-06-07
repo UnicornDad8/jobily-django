@@ -1,5 +1,6 @@
 .alert {
-  display: inline-flex;
+  display: flex;
+  margin: 0 auto;
   gap: 3rem;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +9,11 @@
   border: 1px solid var(--color-white-light);
   margin-bottom: 1rem;
   margin-right: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 250px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .alert,
