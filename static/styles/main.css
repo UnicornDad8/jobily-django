@@ -14,3 +14,9 @@
 .project .card__body {
   height: 250px;
 }
+
+.wt {
+  width: 80px !important;
+  display: flex;
+  justify-content: center;
+}
