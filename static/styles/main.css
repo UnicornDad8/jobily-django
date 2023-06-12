@@ -20,3 +20,8 @@
   display: flex;
   justify-content: center;
 }
+
+.btn--danger {
+  background-color: red !important;
+  color: var(--color-white);
+}
