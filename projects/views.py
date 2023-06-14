@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Project
-from .forms import ProjectForm
+from django.contrib import messages
+from .forms import ProjectForm, ReviewForm
 from .utils import search_projects, paginate_projects
 
 
 def projects(request):
     projects, search_query = search_projects(request)
-    custom_range, projects = paginate_projects(request, projects, 2)
+    custom_range, projects = paginate_projects(request, projects, 6)
 
     context = {
         "projects": projects,
@@ -19,7 +20,21 @@ def projects(request):
 
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
-    return render(request, 'projects/single-project.html', {"project": projectObj})
+    form = ReviewForm()
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        review = form.save(commit=False)
+        review.project = projectObj
+        review.owner = request.user.profile
+        review.save()
+
+        projectObj.get_vote_count
+
+        messages.success(request, "Your review was successfully added")
+        return redirect("project", pk=projectObj.id)
+
+    return render(request, 'projects/single-project.html', {"project": projectObj, "form": form})
 
 
 @login_required(login_url="login")
