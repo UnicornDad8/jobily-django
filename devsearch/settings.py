@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-o$u_sm+tc@-5-0^i3+!)(0uvr5m7+4s3el6anpchla_d0b=447
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', "127.0.0.1"]
+ALLOWED_HOSTS = ['localhost', "127.0.0.1", "jobily-a3825349a281.herokuapp.com"]
 
 
 # Application definition
@@ -214,3 +214,7 @@ AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_QUERYSTRING_AUTH = False
 
 AWS_S3_FILE_OVERWRITE = False
+
+
+if os.getcwd() == '/app':
+    DEBUG = False
