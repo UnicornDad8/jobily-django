@@ -575,7 +575,7 @@ img {
 ========================*/
 
 .settingsPage .dev > .settings__btn {
-  display: inline-block;
+  display: block;
   margin-bottom: 3rem;
 }
 

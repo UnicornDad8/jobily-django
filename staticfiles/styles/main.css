@@ -14,3 +14,20 @@
 .project .card__body {
   height: 250px;
 }
+
+.wt {
+  width: 80px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.btn--danger {
+  background-color: red;
+  color: var(--color-white);
+}
+
+#id_value {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+}
