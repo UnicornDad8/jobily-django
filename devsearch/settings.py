@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
-import environ
-# Initialise environment variables
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -135,11 +131,11 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'NAME': os.path.join('DATABASE_NAME'),
+        'USER': os.path.join('DATABASE_USER'),
+        'PASSWORD': os.path.join('DATABASE_PASSWORD'),
+        'HOST': os.path.join('HOST'),
+        'PORT': 5432,
     }
 }
 
@@ -181,7 +177,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.path.join('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = 'gsyduffeeyycsspb'
 
 
@@ -205,11 +201,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_ACCESS_KEY_ID = env('AWS_S3_ACCESS_KEY_ID')
+AWS_S3_ACCESS_KEY_ID = os.path.join('AWS_S3_ACCESS_KEY_ID')
 
-AWS_S3_SECRET_ACCESS_KEY = env('AWS_S3_SECRET_ACCESS_KEY')
+AWS_S3_SECRET_ACCESS_KEY = os.path.join('AWS_S3_SECRET_ACCESS_KEY')
 
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_STORAGE_BUCKET_NAME = 'jobily-bucket'
 
 AWS_QUERYSTRING_AUTH = False
 
